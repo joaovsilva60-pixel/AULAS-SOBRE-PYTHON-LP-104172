@@ -11,4 +11,3 @@ sucessor = numero + 1
 print('\n EXIBINDO DADOS =')
 print('Antecessor:', antecessor)
 print('Sucessor:', sucessor)
-          
