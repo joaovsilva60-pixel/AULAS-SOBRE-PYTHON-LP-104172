@@ -1,0 +1,5 @@
+import os
+os.system('cls')
+numero = int(input('solicitando um número: '))
+for i in range(numero,5 ):
+    print(input("soma: "))
