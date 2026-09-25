@@ -1,0 +1,11 @@
+import os
+os.system('cls')
+import time
+
+#solicita o nuemro do usuario
+numero=int(input("Digite um número:"))
+
+#executa o loop de um numero informado
+for i in range(numero,0,-1):
+    print(i)
+    time.sleep(1)

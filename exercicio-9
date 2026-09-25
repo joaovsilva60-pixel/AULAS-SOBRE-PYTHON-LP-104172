@@ -1,0 +1,13 @@
+import os
+os.system('cls')
+
+#Inicializa os contadores de numero
+pares=0
+inpar=0
+
+#Loop para solicitar 5 valors
+for i in  range(5):
+    numero=int(input(f"Digite  o {i+1}° numero inteiro:"))
+
+#Verifica se o numero é par (resto da divisão  por 2 igual)
+    if numero % 2 == 0 :
