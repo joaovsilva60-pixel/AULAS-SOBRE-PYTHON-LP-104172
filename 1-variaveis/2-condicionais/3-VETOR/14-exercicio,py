@@ -1,0 +1,113 @@
+import os
+os.system("cls")
+
+jogadores=[]
+
+while True:
+    print("\n===== SISTEMA DE CADASTRO DE JOGADORES DE FUTEBOL =====")
+    print("1 - Cadastrar Nome")
+    print("2 - Listar Posição do Jogador")
+    print("3 - Numero da Camisa")
+    print("4 - Atualizar dados")
+    print("5 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        nome = input("Digite o nome do Jogador: ")
+        sobrenome = input("Digite o sobrenome do Jogador: ")
+
+        paciente = {
+            "nome": nome,
+            "sobrenome": sobrenome
+        }
+
+        jogadores.append(jogadores)
+        print("Jogador cadastrado com sucesso!")
+
+    elif opcao == "2":
+        if len(jogadores) == 0:
+            print("Nenhum paciente cadastrado.")
+        else:
+            print("\n===== LISTA DE Jogadores =====")
+
+            for i, jogadores in enumerate(jogadores):
+                print(
+                    f"{i + 1} - {jogadores['nome']} "
+                    f"{jogadores['sobrenome']}"
+                )
+
+    elif opcao == "3":
+        if len(jogadores) == 0:
+            print("Nenhum jogadores  cadastrado.")
+        else:
+            for i, paciente in enumerate(jogadores):
+                print(
+                    f"{i + 1} - {paciente['nome']} "
+                    f"{paciente['sobrenome']}"
+                )
+
+            try:
+                numero = int(input("Digite o número do jogadores: "))
+
+                if 1 <= numero <= len(jogadores):
+                    nome = input("Digite o novo nome: ")
+                    sobrenome = input("Digite o novo sobrenome: ")
+
+                    jogadores[numero - 1]["nome"] = nome
+                    jogadores[numero - 1]["sobrenome"] = sobrenome
+
+                    print("jogadores atualizado com sucesso!")
+                else:
+                    print("Número de jogador inválido.")
+
+            except ValueError:
+                print("Digite um número válido.")
+
+    elif opcao == "4":
+        if len(jogadores) == 0:
+            print("Nenhum Jogador cadastrado.")
+        else:
+            for i, paciente in enumerate(jogadores):
+                print(
+                    f"{i + 1} - {jogadores['nome']} "
+                    f"{jogadores['sobrenome']}"
+                )
+
+            try:
+                numero = int(input("Digite o número do jogador que deseja remover: "))
+
+                if 1 <= numero <= len(jogadores):
+                    removido = jogadores.pop(numero - 1)
+                    print(
+                        f"Paciente {removido['nome']} "
+                        f"{removido['sobrenome']} removido com sucesso!"
+                    )
+                else:
+                    print("Número de jogadores inválido.")
+
+            except ValueError:
+                print("Digite um número válido.")
+
+    elif opcao == "5":
+        busca = input("Digite o nome ou sobrenome do jogadores: ").strip().lower()
+
+        encontrados = [
+            jogadores for jogadores in jogadores
+            if busca in jogadores["nome"].lower()
+            or busca in jogadores["sobrenome"].lower()
+        ]
+
+        if encontrados:
+            print("\n===== JOGADORES ENCONTRADOS =====")
+
+            for jogadores in encontrados:
+                print(f"{jogadores['nome']} {jogadores['sobrenome']}")
+        else:
+            print("Nenhum jogador encontrado.")
+    elif opcao == "5":
+        print("Programa encerrado. Até logo!")
+        break
+
+    else:
+        print("Opção inválida! Escolha uma opção de 1 a 5.")
